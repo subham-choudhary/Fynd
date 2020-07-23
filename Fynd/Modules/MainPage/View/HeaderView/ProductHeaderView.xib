@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductHeaderView" customModule="Fynd" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="gAg-br-suQ" id="2hF-h1-Eni"/>
+                <outlet property="expandButton" destination="IEe-jJ-rVc" id="Ic8-un-svn"/>
+                <outlet property="filterSegmentControl" destination="JZx-IA-Ymd" id="Vcn-jr-wga"/>
+                <outlet property="titleLabel" destination="HfZ-UV-TsN" id="72Z-2J-WDG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gAg-br-suQ">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IEe-jJ-rVc">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <connections>
+                        <action selector="didTapExpandButton:" destination="-1" eventType="touchUpInside" id="cJ6-wG-B8b"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfZ-UV-TsN">
+                    <rect key="frame" x="20" y="0.0" width="42" height="64"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JZx-IA-Ymd">
+                    <rect key="frame" x="285" y="16.5" width="109" height="32"/>
+                    <segments>
+                        <segment title="Name"/>
+                        <segment title="Price"/>
+                    </segments>
+                    <connections>
+                        <action selector="didTapFilterButton:" destination="-1" eventType="valueChanged" id="4Xt-8b-Vok"/>
+                    </connections>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JZx-IA-Ymd" secondAttribute="trailing" constant="20" id="7d3-jT-cbq"/>
+                <constraint firstItem="HfZ-UV-TsN" firstAttribute="top" secondItem="gAg-br-suQ" secondAttribute="top" id="SsY-8K-adi"/>
+                <constraint firstItem="JZx-IA-Ymd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HfZ-UV-TsN" secondAttribute="trailing" constant="20" id="VhY-99-E90"/>
+                <constraint firstItem="JZx-IA-Ymd" firstAttribute="centerY" secondItem="gAg-br-suQ" secondAttribute="centerY" id="WBz-LT-C27"/>
+                <constraint firstItem="IEe-jJ-rVc" firstAttribute="top" secondItem="gAg-br-suQ" secondAttribute="top" id="XVd-xY-xOy"/>
+                <constraint firstAttribute="bottomMargin" secondItem="HfZ-UV-TsN" secondAttribute="bottom" id="eMe-KZ-Yua"/>
+                <constraint firstItem="HfZ-UV-TsN" firstAttribute="leading" secondItem="gAg-br-suQ" secondAttribute="leading" constant="20" id="fen-la-tZ8"/>
+                <constraint firstAttribute="trailing" secondItem="IEe-jJ-rVc" secondAttribute="trailing" id="h5B-Xj-dfV"/>
+                <constraint firstAttribute="bottom" secondItem="IEe-jJ-rVc" secondAttribute="bottom" id="i9U-3R-u1u"/>
+                <constraint firstItem="IEe-jJ-rVc" firstAttribute="leading" secondItem="gAg-br-suQ" secondAttribute="leading" id="sgc-lp-8sj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="1047.1014492753625" y="-306.36160714285711"/>
+        </view>
+    </objects>
+</document>
