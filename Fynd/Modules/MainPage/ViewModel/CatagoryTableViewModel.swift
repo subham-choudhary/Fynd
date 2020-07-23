@@ -11,18 +11,19 @@ import Foundation
 protocol CatagoryTableProtocol {
     func getFilteredData(with filter: FilterType, data: [Product]) -> [Product]
 }
-class CatagoryTableViewModel: CatagoryTableProtocol {
 
+class CatagoryTableViewModel: CatagoryTableProtocol {
+    
     //Filtering data by FilterType
     func getFilteredData(with filter: FilterType, data: [Product]) -> [Product] {
         switch filter {
         case .name:
             return data.sorted { (a, b) -> Bool in
-            a.name < b.name
+                a.name < b.name
             }
         case .price:
             return data.sorted { (a, b) -> Bool in
-            a.cost < b.cost
+                a.cost < b.cost
             }
         }
     }

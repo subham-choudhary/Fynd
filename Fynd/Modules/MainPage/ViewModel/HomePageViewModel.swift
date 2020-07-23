@@ -44,16 +44,13 @@ class HomePageViewModel : HomePageProtocol {
             }
         }
     }
+    
     //Grouping catagory with same name together.
     func groupSimilarCatagoryTogether(_ data: [ProductCatagory]) {
         let filteredData = data.filter({$0.products.count > 0})
         var catagoryDict: [String:ProductCatagory] = [:]
         for catagory in filteredData {
-            if let catag = catagoryDict[catagory.name] {
-                let catagProducts = catag.products + catagory.products
-                let newProductCatagory = ProductCatagory(name: catagory.name, products: catagProducts)
-                catagoryDict[catagory.name] = newProductCatagory
-            } else {
+            if let _ = catagoryDict[catagory.name] {} else {
                 catagoryDict[catagory.name] = catagory
             }
         }

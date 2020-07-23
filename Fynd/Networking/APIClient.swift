@@ -31,7 +31,7 @@ struct MyError: LocalizedError, Equatable {
 }
 
 class APIClient {
-       
+    
     func fetchData<T:Codable>(apiRequest:APIRequest,completion:@escaping (_ result:Result<T?,Error>) -> Void) {
         let request = apiRequest.request()
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

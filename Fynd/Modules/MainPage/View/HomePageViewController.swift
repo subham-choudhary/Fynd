@@ -10,9 +10,11 @@ import UIKit
 
 class HomePageViewController: UIViewController {
     
+    //MARK:- IBOutlets
     @IBOutlet weak var categoriesTableView: UITableView!
     @IBOutlet weak var viewStyleToggleButton: UIBarButtonItem!
     
+    //MARK:- Properties
     var viewModel: HomePageProtocol?
     var productCatagories: [ProductCatagory] = [] {
         didSet {
@@ -21,6 +23,7 @@ class HomePageViewController: UIViewController {
     }
     //Dictionary to keep state of Selected Filter
     var filterState:[Int:FilterType] = [:]
+    
     //Enum to keep track of Style of Product Preview
     var viewStyle: ViewStyle = .grouped {
         didSet {
@@ -33,24 +36,29 @@ class HomePageViewController: UIViewController {
             reload()
         }
     }
-    
+    //MARK:- ViewLifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViewModel()
     }
-
+    
+    //MARK:- IBActions
     @IBAction func didToggleView(_ sender: Any) {
-        //TODO: set image 
         switch viewStyle {
-        case .grouped: viewStyle = .list
+        case .grouped:
+            viewStyle = .list
+            viewStyleToggleButton.image = UIImage(systemName: "rectangle.grid.2x2.fill")
         case .list: viewStyle = .grouped
+        viewStyleToggleButton.image = UIImage(systemName: "rectangle.grid.1x2.fill")
         }
     }
     
+    //MARK:- CustomFunctions
     func reload() {
         categoriesTableView.reloadData()
         categoriesTableView.scrollsToTop = true
     }
+    
     func setupViewModel() {
         viewModel = HomePageViewModel()
         viewModel?.onSuccess = { data in
@@ -61,21 +69,16 @@ class HomePageViewController: UIViewController {
         }
         viewModel?.getAllDataFromApi()
     }
-    func createHeaderView(section: Int, viewStyle: ViewStyle) -> UIView {
-        
-        let headerView = ProductHeaderView()
-        headerView.titleLabel.text = productCatagories[section].name
-        headerView.section = section
-        headerView.expandButton.isUserInteractionEnabled = viewStyle == .grouped ? false : true
-        headerView.filterSegmentControl.isHidden = viewStyle == .grouped ? false : true
-        
+    
+    func createHeaderView(section: Int) -> UIView {
         let selectedFilterIndex = filterState[section]?.rawValue ?? 0
-        headerView.filterSegmentControl.selectedSegmentIndex = selectedFilterIndex
+        let headerView = ProductHeaderView(section: section, viewStyle: viewStyle, title: productCatagories[section].name, selectedFilterIndex: selectedFilterIndex, sectionExpanded: section == expandedSection)
         headerView.delegate = self
         return headerView
     }
 }
 
+//MARK:- UITableViewDataSource
 extension HomePageViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -103,7 +106,7 @@ extension HomePageViewController: UITableViewDataSource {
             
         case .list:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
-            cell.configureCell(product: productCatagories[indexPath.section].products[indexPath.row], index: indexPath.row, productCatagoryName: productCatagories[indexPath.section].name)
+            cell.configureCell(product: productCatagories[indexPath.section].products[indexPath.row])
             return cell
         }
     }
@@ -115,19 +118,21 @@ extension HomePageViewController: UITableViewDataSource {
         }
     }
 }
-
+//MARK:- UITableViewDelegate
 extension HomePageViewController: UITableViewDelegate {
     
     func  tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return createHeaderView(section: section, viewStyle: viewStyle)
+        return createHeaderView(section: section)
     }
-        
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 44
+        return 56
     }
 }
 
+//MARK:- HeaderProtocol
 extension HomePageViewController: HeaderProtocol {
+    
     func didTapFilter(section: Int, selectedFilterType: FilterType) {
         filterState[section] = selectedFilterType
         categoriesTableView.reloadSections([section], with: .none)
