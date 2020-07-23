@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		650A0A1E24CA447300467125 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A1D24CA447300467125 /* Constants.swift */; };
+		650A0A2024CA453100467125 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A1F24CA453100467125 /* ViewController+Extensions.swift */; };
+		650A0A2324CA45EF00467125 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A2224CA45EF00467125 /* String+Extensions.swift */; };
 		65B88FA624C8B9F100680872 /* ProductHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B88FA424C8B9F100680872 /* ProductHeaderView.xib */; };
 		65B88FA724C8B9F100680872 /* ProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B88FA524C8B9F100680872 /* ProductHeaderView.swift */; };
 		65B88FAA24C8BB3000680872 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B88FA924C8BB3000680872 /* ProductTableViewCell.swift */; };
@@ -31,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		650A0A1D24CA447300467125 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		650A0A1F24CA453100467125 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
+		650A0A2224CA45EF00467125 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		65B88FA424C8B9F100680872 /* ProductHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductHeaderView.xib; sourceTree = "<group>"; };
 		65B88FA524C8B9F100680872 /* ProductHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductHeaderView.swift; sourceTree = "<group>"; };
 		65B88FA924C8BB3000680872 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +73,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		650A0A1C24CA445600467125 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				65C599B324C9F62F00304032 /* Utility.swift */,
+				650A0A1D24CA447300467125 /* Constants.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		650A0A2124CA453700467125 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				650A0A1F24CA453100467125 /* ViewController+Extensions.swift */,
+				650A0A2224CA45EF00467125 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		65B88FAE24C8D82900680872 /* HeaderView */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,7 +124,8 @@
 				65D06C7724C82A1C005973D4 /* Modules */,
 				65D06C6924C826E1005973D4 /* Networking */,
 				65D06C7024C829D3005973D4 /* Storyboard */,
-				65C599B324C9F62F00304032 /* Utility.swift */,
+				650A0A1C24CA445600467125 /* Utilities */,
+				650A0A2124CA453700467125 /* Extensions */,
 			);
 			path = Fynd;
 			sourceTree = "<group>";
@@ -264,8 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650A0A2324CA45EF00467125 /* String+Extensions.swift in Sources */,
 				65D06C5524C82445005973D4 /* HomePageViewController.swift in Sources */,
 				65D06C8224C8309F005973D4 /* ProductModel.swift in Sources */,
+				650A0A2024CA453100467125 /* ViewController+Extensions.swift in Sources */,
 				65D06C5124C82445005973D4 /* AppDelegate.swift in Sources */,
 				65D06C8024C83001005973D4 /* HomePageViewModel.swift in Sources */,
 				65B88FAC24C8BEA200680872 /* HeaderProtocol.swift in Sources */,
@@ -281,6 +308,7 @@
 				65D06C8724C865B1005973D4 /* ProductCollectionViewCell.swift in Sources */,
 				65D06C8524C8653E005973D4 /* CatagoryTableViewCell.swift in Sources */,
 				65C599B424C9F62F00304032 /* Utility.swift in Sources */,
+				650A0A1E24CA447300467125 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

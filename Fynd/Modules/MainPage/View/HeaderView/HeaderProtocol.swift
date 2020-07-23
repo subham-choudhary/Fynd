@@ -11,6 +11,5 @@ import Foundation
 protocol HeaderProtocol: AnyObject {
     
     func didTapFilter(section:Int, selectedFilterType: FilterType)
-    
     func didExpandOn(section: Int)
 }

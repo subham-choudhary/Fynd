@@ -33,9 +33,12 @@ class HomePageViewModel : HomePageProtocol {
     var addRemoveLoader : (Bool) -> Void = {_ in}
     
     func getAllDataFromApi() {
+        addRemoveLoader(true)
         let request = GetAllDataRequest()
         
         APIClient().fetchData(apiRequest: request) { (result: Result<[ProductCatagory]?,Error>) in
+            self.addRemoveLoader(false)
+            
             switch result {
             case .success(let model):
                 self.groupSimilarCatagoryTogether(model ?? [])

@@ -67,6 +67,27 @@ class HomePageViewController: UIViewController {
                 self.productCatagories = data
             }
         }
+        viewModel?.onFaliure = { error in
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.showAlertWith(message: error.localizedDescription)
+            }
+        }
+        
+        viewModel?.addRemoveLoader = { (shouldAddLoader) in
+            if shouldAddLoader {
+                DispatchQueue.main.async {
+                    Utility.startSpinner(presentingView: self.view)
+                    self.view.isUserInteractionEnabled = false
+
+                }
+            }else {
+                DispatchQueue.main.async {
+                    Utility.stopSpinner(presentingView: self.view)
+                    self.view.isUserInteractionEnabled = true
+                }
+            }
+        }
         viewModel?.getAllDataFromApi()
     }
     
