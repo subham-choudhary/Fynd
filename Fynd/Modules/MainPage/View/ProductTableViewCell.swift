@@ -14,8 +14,9 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var productPriceLabel: UILabel!
     
-    func configureCell(product: Product) {
+    func configureCell(product: Product, index: Int, productCatagoryName: String) {
         productNameLabel.text = product.name
         productPriceLabel.text = String(describing: product.cost)
+        productImageView.image = Utility.getImageFor(index: index, productCatagoryName: productCatagoryName)
     }
 }

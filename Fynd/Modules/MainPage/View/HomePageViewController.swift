@@ -62,11 +62,13 @@ class HomePageViewController: UIViewController {
         viewModel?.getAllDataFromApi()
     }
     func createHeaderView(section: Int, viewStyle: ViewStyle) -> UIView {
+        
         let headerView = ProductHeaderView()
         headerView.titleLabel.text = productCatagories[section].name
         headerView.section = section
         headerView.expandButton.isUserInteractionEnabled = viewStyle == .grouped ? false : true
         headerView.filterSegmentControl.isHidden = viewStyle == .grouped ? false : true
+        
         let selectedFilterIndex = filterState[section]?.rawValue ?? 0
         headerView.filterSegmentControl.selectedSegmentIndex = selectedFilterIndex
         headerView.delegate = self
@@ -101,7 +103,7 @@ extension HomePageViewController: UITableViewDataSource {
             
         case .list:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductTableViewCell", for: indexPath) as? ProductTableViewCell else { return UITableViewCell() }
-            cell.configureCell(product: productCatagories[indexPath.section].products[indexPath.row])
+            cell.configureCell(product: productCatagories[indexPath.section].products[indexPath.row], index: indexPath.row, productCatagoryName: productCatagories[indexPath.section].name)
             return cell
         }
     }

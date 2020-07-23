@@ -13,6 +13,7 @@ class CatagoryTableViewCell: UITableViewCell {
     @IBOutlet weak var productsCollectionView: UICollectionView!
     
     var viewModel: CatagoryTableProtocol? = CatagoryTableViewModel()
+    var catagoryName: String = ""
     var products: [Product] = [] {
         didSet {
             productsCollectionView.reloadData()
@@ -31,6 +32,7 @@ class CatagoryTableViewCell: UITableViewCell {
     
     func configureCell(catagory: ProductCatagory, filter: FilterType?) {
         let filteredProducts = viewModel?.getFilteredData(with: filter ?? .name, data: catagory.products)
+        catagoryName = catagory.name
         products = filteredProducts ?? []
     }
     
@@ -63,7 +65,7 @@ extension CatagoryTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCollectionViewCell", for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell() }
-        cell.configureCell(product: products[indexPath.row])
+        cell.configureCell(product: products[indexPath.row], index: indexPath.row, productCatagoryName: catagoryName)
         return cell
     }
     
