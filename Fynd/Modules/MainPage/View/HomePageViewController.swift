@@ -56,7 +56,11 @@ class HomePageViewController: UIViewController {
     //MARK:- CustomFunctions
     func reload() {
         categoriesTableView.reloadData()
-        categoriesTableView.scrollsToTop = true
+        guard let expandedSection = expandedSection, let visibleIndexpaths = categoriesTableView.indexPathsForVisibleRows else { return }
+        let indexPath = IndexPath(row: 0, section: expandedSection)
+        if !visibleIndexpaths.contains(indexPath) {
+            categoriesTableView.scrollToRow(at: indexPath, at: .top, animated: false)
+        }
     }
     
     func setupViewModel() {
@@ -135,7 +139,7 @@ extension HomePageViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch viewStyle {
         case .grouped: return tableView.frame.width / 1.4
-        case .list: return tableView.frame.width * 1.4
+        case .list: return tableView.frame.width
         }
     }
 }

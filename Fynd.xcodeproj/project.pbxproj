@@ -10,6 +10,7 @@
 		650A0A1E24CA447300467125 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A1D24CA447300467125 /* Constants.swift */; };
 		650A0A2024CA453100467125 /* ViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A1F24CA453100467125 /* ViewController+Extensions.swift */; };
 		650A0A2324CA45EF00467125 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A2224CA45EF00467125 /* String+Extensions.swift */; };
+		650A0A2524CA4A9A00467125 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650A0A2424CA4A9A00467125 /* UIView+Extensions.swift */; };
 		65B88FA624C8B9F100680872 /* ProductHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65B88FA424C8B9F100680872 /* ProductHeaderView.xib */; };
 		65B88FA724C8B9F100680872 /* ProductHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B88FA524C8B9F100680872 /* ProductHeaderView.swift */; };
 		65B88FAA24C8BB3000680872 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65B88FA924C8BB3000680872 /* ProductTableViewCell.swift */; };
@@ -37,6 +38,7 @@
 		650A0A1D24CA447300467125 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		650A0A1F24CA453100467125 /* ViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extensions.swift"; sourceTree = "<group>"; };
 		650A0A2224CA45EF00467125 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		650A0A2424CA4A9A00467125 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		65B88FA424C8B9F100680872 /* ProductHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductHeaderView.xib; sourceTree = "<group>"; };
 		65B88FA524C8B9F100680872 /* ProductHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductHeaderView.swift; sourceTree = "<group>"; };
 		65B88FA924C8BB3000680872 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				650A0A1F24CA453100467125 /* ViewController+Extensions.swift */,
+				650A0A2424CA4A9A00467125 /* UIView+Extensions.swift */,
 				650A0A2224CA45EF00467125 /* String+Extensions.swift */,
 			);
 			path = Extensions;
@@ -289,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650A0A2524CA4A9A00467125 /* UIView+Extensions.swift in Sources */,
 				650A0A2324CA45EF00467125 /* String+Extensions.swift in Sources */,
 				65D06C5524C82445005973D4 /* HomePageViewController.swift in Sources */,
 				65D06C8224C8309F005973D4 /* ProductModel.swift in Sources */,
@@ -463,7 +467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.Fynd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -482,7 +486,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.Fynd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -35,6 +35,7 @@ class CatagoryTableViewCell: UITableViewCell {
     func configureCell(catagory: ProductCatagory, filter: FilterType?) {
         let filteredProducts = viewModel?.getFilteredData(with: filter ?? .name, data: catagory.products)
         products = filteredProducts ?? []
+        productsCollectionView.reloadData()
     }
     
     func setupGesture() {
